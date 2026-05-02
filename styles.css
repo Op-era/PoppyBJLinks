@@ -190,6 +190,9 @@ body {
 .link-btn--sc        { border-color: rgba(255,252,0,0.3); }
 .link-btn--sc:hover  { border-color: #fffc00; box-shadow: 0 0 18px rgba(255,252,0,0.25); }
 
+.link-btn--podcast        { border-color: rgba(255,77,166,0.3); }
+.link-btn--podcast:hover  { border-color: var(--accent); box-shadow: 0 0 18px rgba(255,77,166,0.35); }
+
 /* Footer */
 .footer {
   margin-top: 36px;
