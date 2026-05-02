@@ -1,0 +1,200 @@
+/* Naughty Cat Theme — PoppyBJLinks */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #1a0a2e;
+  --surface: #2d1b4e;
+  --surface-hover: #3d2460;
+  --accent: #ff4da6;
+  --accent2: #b44fff;
+  --text: #f5e6ff;
+  --text-muted: #c9a8e8;
+  --radius: 18px;
+  --shadow: 0 4px 24px rgba(180, 79, 255, 0.25);
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at top, #3b1060 0%, transparent 60%),
+    radial-gradient(ellipse at bottom, #1a0a2e 0%, #0d0618 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 16px 60px;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+}
+
+/* Decorative paw-print divider (CSS only) */
+.paw-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  margin: 18px 0;
+}
+
+.paw-divider::before,
+.paw-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent2), transparent);
+}
+
+.paw-divider span {
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+}
+
+/* Profile card */
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(180, 79, 255, 0.3);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 36px 28px 40px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Avatar / placeholder image */
+.avatar-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.avatar-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent), var(--accent2), var(--accent));
+  animation: spin 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.avatar-wrapper img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg);
+  display: block;
+}
+
+/* Name & bio */
+.profile-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.9rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.profile-bio {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Links list */
+.links {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 77, 166, 0.08);
+  border: 1px solid rgba(255, 77, 166, 0.3);
+  border-radius: var(--radius);
+  padding: 15px 22px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-btn::after {
+  content: '›';
+  position: absolute;
+  right: 22px;
+  font-size: 1.4rem;
+  opacity: 0.5;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.link-btn:hover {
+  background: rgba(180, 79, 255, 0.18);
+  border-color: var(--accent2);
+  box-shadow: 0 0 18px rgba(180, 79, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.link-btn:hover::after {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.link-btn svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+/* Platform-specific accent colours */
+.link-btn--x        { border-color: rgba(255,255,255,0.15); }
+.link-btn--x:hover  { border-color: #fff; box-shadow: 0 0 18px rgba(255,255,255,0.15); }
+
+.link-btn--ig        { border-color: rgba(255,120,80,0.3); }
+.link-btn--ig:hover  { border-color: #f58529; box-shadow: 0 0 18px rgba(245,133,41,0.3); }
+
+.link-btn--sc        { border-color: rgba(255,252,0,0.3); }
+.link-btn--sc:hover  { border-color: #fffc00; box-shadow: 0 0 18px rgba(255,252,0,0.25); }
+
+/* Footer */
+.footer {
+  margin-top: 36px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  opacity: 0.7;
+}
